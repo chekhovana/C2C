@@ -60,6 +60,7 @@ def select_topk(dl, enc):
     path_list = []
     for i, (input_image, input_image_path) in enumerate(dl):
         path_list += list(input_image_path)
+        input_image = input_image.float()
         if len(img_rep):
             img_rep = np.concatenate((img_rep, enc(input_image.cuda()).detach().cpu().numpy()))
         else:

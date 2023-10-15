@@ -5,7 +5,6 @@ import pandas as pd
 import albumentations
 from tqdm import tqdm
 from torch.utils.data import Dataset, DataLoader
-from albumentations.pytorch import ToTensorV2, ToTensor
 
 from C2C.dataloader import *
 from C2C.models.resnet import *
@@ -62,7 +61,7 @@ def compute_attn_df(tdl, model, track_running_stats=True):
     fname_list = []
 
     for i, sample in enumerate(tdl):
-        attn_rep_instance, inp_rep_instance = enc_attn(sample[0].cuda())
+        attn_rep_instance, inp_rep_instance = enc_attn(sample[0].float().cuda())
         attn_rep_instance = attn_rep_instance.detach()
         inp_rep_instance = inp_rep_instance.detach()
         if len(inputs_rep) == 0:

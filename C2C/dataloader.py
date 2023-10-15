@@ -4,7 +4,6 @@ import random
 import numpy as np
 import albumentations
 from torch.utils.data import Dataset, DataLoader
-from albumentations.pytorch import ToTensorV2, ToTensor
 
 class WSIDataloader(Dataset):
     """
