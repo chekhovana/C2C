@@ -11,3 +11,4 @@ trained/*
 # Python files
 *.pyo
 *.pyc
+.DS_Store
